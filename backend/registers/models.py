@@ -1,4 +1,5 @@
 from django.db import models
+from .entites import Category, Coin
 
 class ModelCoin(models.Model):
     coin = models.CharField(max_length=50, verbose_name='Moeda', unique=True)
@@ -12,6 +13,14 @@ class ModelCoin(models.Model):
     
     def __str__(self):
         return self.coin
+    
+    def save(self):
+        coin = Coin(self.coin, self.country, self.symbol)
+        self.coin = coin.coin
+        self.country = coin.country
+        self.symbol = coin.symbol
+        return super().save()
+
 
 class ModelTypeAccount(models.Model):
     type = models.CharField(max_length=50, verbose_name='Tipo da Conta', unique=True)
@@ -57,3 +66,8 @@ class ModelCategory(models.Model):
 
     def __str__(self):
         return self.name
+    
+    def save(self):
+        cat = Category(self.name)
+        self.name = cat.name
+        return super().save()

@@ -21,7 +21,7 @@ class ModelOperations(models.Model):
 class ModelImagens(models.Model):
     operation = models.ForeignKey(ModelOperations, on_delete=models.CASCADE, 
                                   verbose_name='Operação', related_name='photos')
-    image = models.ImageField(upload_to='note/', verbose_name='Imagnes')
+    image = models.ImageField(upload_to='note/', verbose_name='Imagens')
 
     class Meta:
         verbose_name_plural = 'Imagens'
