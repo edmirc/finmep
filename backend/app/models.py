@@ -16,6 +16,9 @@ class ModelOperations(models.Model):
                                  verbose_name='Categoria', related_name='categorys')
     invoice = models.DateField(verbose_name='Data da Fatura')
     note = models.IntegerField(verbose_name='Numero da Nota')
+
+    class Meta:
+        pass
     
     
 class ModelImagens(models.Model):

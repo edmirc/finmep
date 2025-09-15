@@ -11,7 +11,7 @@ class AdminCategory(admin.ModelAdmin):
 
 @admin.register(ModelAccount)
 class AdminAccount(admin.ModelAdmin):
-    list_display = ('type', 'description')
+    list_display = ('name','coin','number','type','operation','description')
     list_filter = ('type',)
     search_fields = ('type',)
 
